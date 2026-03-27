@@ -1,0 +1,100 @@
+/* Fundo da página */
+body {
+  margin: 0;
+  font-family: 'Trebuchet MS', sans-serif;
+  background: #97b498; /* fundo geral */
+  color: #ffffff;
+}
+
+/* Cabeçalho */
+header {
+  text-align: center;
+  padding: 20px;
+  background: url('../API/img/FundoBarra.jpg');
+  border-bottom: 4px solid #ffffff;
+}
+
+/* Barra de busca */
+#search-form {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  background-size: cover;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+#artist-input {
+  padding: 10px;
+  border: 2px solid #ffffff;
+  border-radius: 20px;
+  width: 60%;
+  background-color: #fffafc;
+  color: #ff69b4;
+}
+
+#search-form button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* deixa o botão circular */
+  padding: 0;
+  font-size: 18px; /* aumenta o tamanho da lupa */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Grid de álbuns */
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); /* padrão: 6 colunas em desktop */
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Quando a tela for menor que 1200px */
+@media (max-width: 1200px) {
+  .album-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+  }
+}
+
+/* Quando a tela for menor que 800px */
+@media (max-width: 800px) {
+  .album-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+  }
+}
+
+/* Quando a tela for menor que 500px */
+@media (max-width: 500px) {
+  .album-grid {
+    grid-template-columns: repeat(2, 1fr); /* agora serão 2 colunas */
+  }
+}
+
+
+
+/* Card de álbum */
+.album-card {
+  background-color: #4e6350;
+  background: 2px solid, #fff0f5;
+  background-size: cover;
+  border: 2px solid #ffb6c1;
+  border-radius: 15px;
+  padding: 10px;
+  text-align: center;
+}
+
+.album-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  margin-top: 30px; 
+}
+
+.album-card h3 {
+ font-family: 'Verdana', sans-serif;
+}
