@@ -42,6 +42,9 @@ async function buscarAlbuns(artista) {
       });
     } else {
       resultsSection.innerHTML = "<p>Nenhum álbum encontrado.</p>";
+      if (navigator.vibrate) {
+  navigator.vibrate(200); // vibra por 200ms
+          }
     }
   } catch (error) {
     console.error("Erro ao buscar álbuns:", error);
@@ -54,5 +57,32 @@ form.addEventListener("submit", function(event) {
   const artista = input.value.trim();
   if (artista) {
     buscarAlbuns(artista);
+  }
+});
+function mostrarLocalizacao() {
+  if ("geolocation" in navigator) {
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        const { latitude, longitude } = position.coords;
+        const localDiv = document.createElement("p");
+        localDiv.textContent = `Sua localização: Lat ${latitude}, Long ${longitude}`;
+        resultsSection.prepend(localDiv);
+      },
+      error => {
+        console.error("Erro ao obter localização:", error);
+      }
+    );
+  } else {
+    console.log("Geolocalização não suportada");
+  }
+}
+
+// Chamar junto da busca
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+  const artista = input.value.trim();
+  if (artista) {
+    buscarAlbuns(artista);
+    mostrarLocalizacao();
   }
 });

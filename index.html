@@ -6,6 +6,8 @@
   <title>Buscador de Álbuns</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#000000">
 
 </head>
 <body>
@@ -24,5 +26,13 @@
   </main>
 
   <script src="script.js"></script>
+  <script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js")
+      .then(reg => console.log("Service Worker registrado!", reg))
+      .catch(err => console.error("Erro ao registrar Service Worker", err));
+  }
+</script>
+
 </body>
 </html>
